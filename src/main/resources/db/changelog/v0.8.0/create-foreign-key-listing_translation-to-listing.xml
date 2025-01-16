@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-foreign-key-listing_translation-to-listing" author="SimonG">
+
+        <addForeignKeyConstraint baseTableName="listing_translation"
+                                 baseColumnNames="listing_id"
+                                 constraintName="fk_listing_translation_listing"
+                                 referencedTableName="listing"
+                                 referencedColumnNames="id" />
+
+    </changeSet>
+
+
+</databaseChangeLog>

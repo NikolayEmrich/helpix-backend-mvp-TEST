@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-table-listing" author="SimonG">
+        <createTable tableName="listing">
+
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="slug" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="category_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="contact_phone" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="contact_email" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="website_url" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="created_at" type="timestamp">
+            </column>
+
+            <column name="updated_at" type="timestamp">
+            </column>
+
+            <column name="is_active" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="location" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="map_link" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="map_embed_link" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="map_provider" type="varchar(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="address" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="price" type="int">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="currency_code" type="varchar(3)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="price_usd" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="payment_type" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+
+
+        </createTable>
+
+    </changeSet>
+
+
+</databaseChangeLog>

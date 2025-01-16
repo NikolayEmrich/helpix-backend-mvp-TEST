@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-foreign-key-listing-to-user-and-category" author="SimonG">
+
+        <addForeignKeyConstraint baseTableName="listing"
+                                 baseColumnNames="user_id"
+                                 constraintName="fk_listing_user"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="listing"
+                                 baseColumnNames="category_id"
+                                 constraintName="fk_listing_category"
+                                 referencedTableName="category"
+                                 referencedColumnNames="id" />
+
+    </changeSet>
+
+
+</databaseChangeLog>

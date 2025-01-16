@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <!-- ChangeSet для создания ENUM типа -->
+    <changeSet id="create-enum-gender" author="SimonG">
+        <sql>
+            CREATE TYPE gender_enum AS ENUM ('male', 'female');
+        </sql>
+    </changeSet>
+
+    <changeSet id="create-table-account" author="SimonG">
+        <createTable tableName="account">
+
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+
+            <column name="name" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="auth_provider" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="auth_id" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="created_at" type="timestamp">
+            </column>
+
+            <column name="updated_at" type="timestamp">
+            </column>
+
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="gender" type="gender_enum">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="email" type="varchar(100)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+
+            <column name="email_verified" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="id_token" type="text">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="access_token_expires_in" type="int">
+                <constraints nullable="true"/>
+            </column>
+
+
+        </createTable>
+
+    </changeSet>
+
+
+</databaseChangeLog>
